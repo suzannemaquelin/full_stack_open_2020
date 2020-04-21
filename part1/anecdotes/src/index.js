@@ -18,7 +18,6 @@ const App = (props) => {
     if (copy[selected] > copy[mostVotes]) {
       setMostVotes(selected)
     }
-    console.log(mostVotes)
     setPoints(copy)
   }
 

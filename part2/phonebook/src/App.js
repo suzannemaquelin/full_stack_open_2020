@@ -52,7 +52,7 @@ const App = () => {
   const replaceNumber = (personObject) => {
     if(window.confirm(`${newName} is already added to phonebook, 
       replace the old number with a new one?`)) {
-      const id = persons.find(person => person.name == newName).id
+      const id = persons.find(person => person.name === newName).id
       personService.update(id, personObject)
         .then(returnedPerson => {
           setPersons(persons.map(person => person.id !== id ? person : returnedPerson))
@@ -93,7 +93,7 @@ const App = () => {
       ? personService
         .remove(person.id)
         .then(() => {
-          setPersons(persons.filter(p => p.name != person.name))
+          setPersons(persons.filter(p => p.name !== person.name))
         })
         .catch(error => {
           setErrorNotification(`Deleting ${person.name} failed`)

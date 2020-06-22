@@ -62,7 +62,8 @@ const App = () => {
           }, 3000)
         })
         .catch(error => {
-          setErrorNotification(`Information of ${personObject.name} has already been removed from server`)
+          console.log(error.response.data)
+          setErrorNotification(error.response.data.error)
           setTimeout(() => {
             setErrorNotification(null)
           }, 3000)
@@ -81,10 +82,12 @@ const App = () => {
           }, 3000)
         })
       .catch(error => {
-        setErrorNotification(`Adding ${personObject.name} failed`)
+        console.log(error.response.data)
+        setErrorNotification(error.response.data.error)
+        // setErrorNotification(`Adding ${personObject.name} failed`)
         setTimeout(() => {
           setErrorNotification(null)
-        }, 3000)
+        }, 5000)
       })
   }
 
